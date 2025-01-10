@@ -1,16 +1,42 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root')); 
+//React Element
+const heading = React.createElement("h1", { id: "heading" }, "Pavan");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(heading);
+console.log(heading);
+//JSX - HTML-like or XML-like syntax
+//React Element
+const JsxHeading = (
+  <h1 className="head" tabIndex={1}>
+    Hey using JSX
+  </h1>
+);
 
-const parent3 = React.createElement("div", {id: "parent"}, 
-    [React.createElement("div", {id: "child1"}, 
-    [React.createElement("h1", {}, "hi there 1"), 
-    React.createElement("h1", {}, "hi there 2")]), 
-    React.createElement("div", {id: "child2"}, 
-        [React.createElement("h1", {}, "sib1"), 
-        React.createElement("h1", {}, "sib2")])]);
-// console.log(root);
-root.render(parent3);
+//React Component
+const HeadingComponent = () => (
+  <div id="container">
+    {reactElement}
+    <h2>{number}</h2>
+    <h1 className="heading">Hey using Functional Component</h1>
+  </div>
+);
 
-//The above structure looks ugly and tedious to write and read that is why we use JSX
+const elem = <h2>elem</h2>;
+
+const Title = () => (
+  <div>
+    <h1>Title</h1>
+  </div>
+);
+const reactElement = (
+  <div>
+    <h2>React Element</h2>
+    {elem}
+    <Title />
+  </div>
+);
+const number = 100;
+console.log(JsxHeading);
+root.render(<HeadingComponent />);
