@@ -181,3 +181,26 @@
 
 - "<Title/>" and "<Title></Title>" both are same. also you can execute it like {Title()}
 - JSX is what makes our code readable
+
+# Props
+
+- Props are the properties that are passed to a component.
+- Similar to the arguements that are passed to a function.
+- When we want to dynamically pass something to a component pass it as a prop.
+
+# Config Driven UI
+
+- Our website is driven by data, config.
+- config driven ui means controlling your ui based on data, config.
+- The data comes from apis, backend.
+
+# Use Key attribute for the components called inside a loop
+
+- If we aren't using key for the components inside a loop then when react re-renders all the loop elements gets re-rendered.
+- using key attributes helps react to re-render only the newly added components.
+- key should be unique for every component.
+- using key improves performance.
+- Note:- React itself says that not to use indexes as key. It is not recommended.
+- A key is the only thing React uses to identify DOM elements. What happens if you push an item to the list or remove something in the middle? If the key is same as before React assumes that the DOM element represents the same component as before. But that is no longer true.
+- when the list is static, not filtered, re-ordered, no ids then use indexes.
+- still if you have choice avoid using indexes as much as you can.
