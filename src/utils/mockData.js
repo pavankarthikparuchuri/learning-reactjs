@@ -1,44 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-/**
- * Header Component
- * -Logo
- * -Nav Item
- * Body Component
- * - Search Component
- * - Restaurant Container
- *  - Restaurant Card
- *   - Image
- *   - Restaurant Name
- *   - cuisines
- *   - Rating
- *   - Delivery Time
- * Footer
- * - CopyRight
- * - Links
- * - Address
- * - Contact
- */
-
-const Header = () => (
-  <div className="header">
-    <div className="logo-container">
-      <img
-        className="logo"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdaMYtVi9_tfNcpsbGGseU6ehYgV9UeU3h7A&s"
-      />
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
-
 let resData = [
   {
     type: "restaurant",
@@ -4708,49 +4667,5 @@ let temp = [
   },
 ];
 resData = [...resData, ...temp];
-const RestroCard = (props) => {
-  const { RestroData } = props;
-  const {
-    image: { url },
-    name,
-    cuisine,
-    costText: { text },
-    ratingNew: {
-      ratings: {
-        DELIVERY: { rating },
-      },
-    },
-  } = RestroData?.info;
-  const { deliveryTime } = RestroData?.order;
-  return (
-    <div className="restro-card">
-      <img className="res-logo" alt="res-logo" src={url} />
-      <h3>{name}</h3>
-      <h4 style={{ wordWrap: "break-word" }}>
-        {cuisine.map(({ name }) => name).join(",")}
-      </h4>
-      <h4>{text}</h4>
-      <h4>{rating}</h4>
-      <h4>{deliveryTime}</h4>
-    </div>
-  );
-};
-const Body = () => (
-  <div className="body">
-    <div className="search-container">Search</div>
-    <div className="restro-container">
-      {resData.map((restaurant) => (
-        <RestroCard key={restaurant.info.resId} RestroData={restaurant} />
-      ))}
-    </div>
-  </div>
-);
-const AppLayout = () => (
-  <div className="app">
-    <Header />
-    <Body />
-  </div>
-);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default resData;

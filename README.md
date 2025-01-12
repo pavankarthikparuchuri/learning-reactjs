@@ -204,3 +204,83 @@
 - A key is the only thing React uses to identify DOM elements. What happens if you push an item to the list or remove something in the middle? If the key is same as before React assumes that the DOM element represents the same component as before. But that is no longer true.
 - when the list is static, not filtered, re-ordered, no ids then use indexes.
 - still if you have choice avoid using indexes as much as you can.
+
+# Why do we use React
+
+- Everything we can implement using React can also be done using normal HTML, CSS, Javascript
+- The Beauty of using a library and a framework is it makes the developers life easy, we can write less code and implement more stuff in the web page.
+- React makes your coding experience very fast and then also optimizes things on webpage so that things happen very fast.
+
+# Industry Best Practices
+
+- Make a seperate file for every component.
+- All the components should be in src folder.
+
+# Food Ordering App
+
+- Header Component
+- -Logo
+- -Nav Item
+- Body Component
+- - Search Component
+- - Restaurant Container
+- - Restaurant Card
+- - Image
+- - Restaurant Name
+- - cuisines
+- - Rating
+- - Delivery Time
+- Footer
+- - CopyRight
+- - Links
+- - Address
+- - Contact
+
+# Types of export and import
+
+- There are two types of export namely default export and named export.
+- we can only have one default export for a file.
+- If there are multiple thigs which we want to export in a single file we use export keyword before the variable name this is called named export.
+- whenever we have a named export we use "{}" to import those.
+- For a default export, no need to use curly braces for import.
+- we can have both named exports and default exports in a single file.
+- export default Component, import Component from "path"
+- export const Component, import {Component} from "path"
+
+# Default key in export
+
+- There can be multiple export statements in a single file. default key can only be using once in the whole file to let you import the variable without using {} brackets.
+  ![Default usage](image.png)
+
+# React Hooks
+
+- React is fast in DOM manipulation, this is what react solves.
+- suppose we want to make data and ui layer consistent with each other this is what react, angular and other frameworks are trying to solve.
+- Hooks are normal javascript functions that are given by React that are pre-built.
+- React Hooks are Normal JS utility functions written by facebook.
+- useState() - SuperPowerful state variables in React.
+- state variable maintains the state of the component.
+- Local state variables scope is inside the component.
+- useState() gives a state variable and that you can get using const [state_variable] = useState();
+- the default value to the state variable is passed inside useState like useState(default_value);
+- to modify the state variable we use setstate function.
+- const [state, setState] = useState(default_value).
+- This super powerful state variable tries to keep the UI layer in sync with data layer.
+- whenever a state variable updates, React re-renders its component.
+- whenever there is change in the state variable react will remove the body and quickly update the ui properly.
+
+# Reconciliation Algorithm
+
+- React uses Reconciliation algorithm which is also known as React fiber.
+- virtual DOM is a representation of actual DOM.
+- virtual DOM is an JS Object.
+- Actual DOM is <div><img/></div>, virtual DOM is {div : {img}} somewhat like this.
+- This algorithm basically tries find the difference between two virtual DOMs and updates the Actual DOM.
+- Finding out difference in the HTML nodes it different and it is easy to figure out in objects.
+- That's why React is faster it tries to check the previous virtual DOM and the updated DOM which are objects and updates the Actual DOM.
+
+# Diff Algorithm
+
+- Diff Algorithm finds the difference between two virtual DOMs.
+- Finds the difference between previous and updated virtual DOMs.
+- It will find the difference and does the change on every render cycle.
