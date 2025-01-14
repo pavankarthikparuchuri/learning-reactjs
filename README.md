@@ -284,3 +284,35 @@
 - Diff Algorithm finds the difference between two virtual DOMs.
 - Finds the difference between previous and updated virtual DOMs.
 - It will find the difference and does the change on every render cycle.
+
+# Monolith Architecture
+
+- The whole project is build as a single app.
+- APIs, UI pages, Authentication code and databases connection code, sms code etc everything written in the same sevice.
+- Even if we want to make a change in any one of the service we need to compile and build the whole project.
+
+# Microservice Architecture
+
+- The app is broken down into multiple independent services.
+- This helps for scaling each services and also not having a single point of failures and also we can use different techstacks for different services like ui written in reactjs and backend written in java.
+- seperate projects for every service.
+- different service deploy at different ports and all can be mapped to domain names.
+- like abc.com/ui for ui and abc.com/api for backend etc.
+- ui can interact with backend using /api url.
+
+# useEffect React Hook
+
+- it has two arguements they are callback function and a dependency array.
+- when nothing is passed in the dependency array the callback function will be invoked after the component gets rendered.
+
+# Shimmer ui
+
+- A fake page or card is shown untill the data is loaded.
+
+# Conditional Rendering
+
+- rendering based on condition is called conditional rendering.
+
+# Rendering a component means similar to calling a function but with updated values
+
+# whenever state variables update, react triggers a reconciliation cycle(re-render the component)
