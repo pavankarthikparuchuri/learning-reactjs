@@ -316,3 +316,79 @@
 # Rendering a component means similar to calling a function but with updated values
 
 # whenever state variables update, react triggers a reconciliation cycle(re-render the component)
+
+# If there is no dependency array in useEffect then useEffect gets called on every render.
+
+# If the dependency array is empty then useEffect is called on initial render(just once)
+
+# If there is some dependencies in the array then useEFFECT is called when the dependencies changes.
+
+# Never call useState hooks outside the component, useState is used to create local state variables for functional components.
+
+# Always create useState variable at the beginnings of the component.
+
+# Never create useState variables inside a if-else condition, for loop, some function create them at top of the functional component.
+
+# Routing
+
+- used react-router-dom package for creating routes.
+- createBrowserRouter creates the configuration for the routes it is an array of the routes.
+  const appRouter = createBrowserRouter([
+  {
+  path: "/",
+  element: <AppLayout />,
+  },
+  {
+  path: "/about",
+  element: <About />,
+  },
+  ]);
+
+- Router provider is a component used to render the routes.
+- root.render(<RouterProvider router={appRouter} />);
+- Function starting with "use" keyword is generally a hook, common convention used in react industry.
+- children routes - if we want to have a certain component based on the routes.
+- outlet is the component that gets replaced with the children component based on path.
+
+const AppLayout = () => (
+
+  <div className="app">
+    <Header />
+    <Outlet />
+  </div>
+);
+
+const appRouter = createBrowserRouter([
+{
+path: "/",
+element: <AppLayout />,
+children: [
+{
+path: "/",
+element: <Body />,
+},
+{
+path: "/about",
+element: <About />,
+},
+{
+path: "/contact",
+element: <Contact />,
+},
+],
+errorElement: <Error />,
+},
+]);
+
+- Note:- Never use anchor tags for routes in react as it reloads the whole page.
+- use Link Component provided by reacct router dom.
+- <Link to="/">Home</Link>
+- using link it just changes the component based on routes
+- Link is a wrapper over anchor tag, it is a special type of anchor tag provided by react router dom
+
+# Two types of routing in web apps
+
+- Client Side Routing:- All the components code is already present and when clicked on any route we just load those components.
+- Server Side Routing:- when clicked on a route, the page gets reloaded and a network call is made to that route and fetches those route component and showcases that page.
+
+- React is used to create single page application using client side routing.
