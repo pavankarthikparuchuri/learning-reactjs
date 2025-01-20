@@ -392,3 +392,67 @@ errorElement: <Error />,
 - Server Side Routing:- when clicked on a route, the page gets reloaded and a network call is made to that route and fetches those route component and showcases that page.
 
 - React is used to create single page application using client side routing.
+
+# Class Based Components
+
+- This is a normal javascript class.
+- class UserClass extends React.Component {
+
+}; " extends React.Component" is what makes the UserClass a class based component
+
+- class based component has a render method that returns a piece of jsx or react element.
+
+- super keyword is used to call the constructor of the parent or access the properties or methods of a parent(super class)
+
+- when we are extending a class(parent is super class, child is derived class) we need to call super before accessing the this keyword or returning from derived contructor
+
+- we need to call super method in the constructor method to use this keyword to access the props.
+
+- import React from "react";
+  class UserClass extends React.Component {
+  constructor(props) {
+  super(props);
+  }
+  render() {
+  return (
+  <div className="user-card">
+  <h2>Name: {this.props.name}</h2>
+  <h3>Location: Bengaluru,Karnataka</h3>
+  <h4>Contact: pavankarthikparichuri2001@gmail.com</h4>
+  </div>
+  );
+  }
+  }
+
+export default UserClass;
+
+- rendering a functional component is same as invoking the functional component and for class based components it is creating an instance of the class.
+
+- whenever a class based component is called first the constructor is called after that render is called.
+
+# LifeCycles of React components
+
+- componentdidmount gets called once the component gets completely mounted or rendered.
+- similar to useEffect(()=>{callbackfunc()},[]).
+
+- there are two phases in react one is render phase where constructor and render is called and commit phase where DOM updates, side effects are ran like componentdidmount, componentdidupdate,componentwillunmount.
+
+- when there are multiple children components to a component react batches the render phases of this child components and post that the commit phase is batched together and gets completed.
+
+- React is doing the batching at render phase because once the components enter commit phase DOM manipulation happens which is an expensive operation in loading a component.
+
+- In the render phase, the constructor is called and the render method is called which does the re-conciliation(checking the diff between two virtual DOMs) and in commit phase the actual DOM manipulation happens.
+
+- componentDidUpdate event is called when there is a change in some state.
+
+- componentwillunmount event is called just before component unmounting
+
+- unmounting means when the component goes from the HTML/UI.
+
+- componentwillupdate gets called in everyrender.
+- also useeffect when nodependendecy array is passed gets called in every render.useEffect(()=>{callbackfunc()}).
+- useEffect(()=> {}, [count]) this gets called when there is change in the count state.
+- componentDidUpdate(prevProps, prevState){if(prevState.count!==this.state.count)console.log("count changed")}
+- componentWillUnmount can be replicated with useEffect using a return function.
+- useEffect(()=> {return()=>{}},[])
+- componentWillUnmount for cleanup.
