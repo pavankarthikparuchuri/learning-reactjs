@@ -456,3 +456,24 @@ export default UserClass;
 - componentWillUnmount can be replicated with useEffect using a return function.
 - useEffect(()=> {return()=>{}},[])
 - componentWillUnmount for cleanup.
+
+# Single Responsibility Principle
+
+- In computer science there is a principle called single responsibility principle where every function or a class or a identity should be having a single responsibility.
+
+- modularity meaning breaking your code into small meaningful modules that helps in making the code maintainable and testable and also reusable.
+
+# Custom Hooks
+
+- we can create own hooks and make code modular.
+- created few custom hooks in utility folder.
+
+# Chunking/Code Splitting/Dynamic loading/ Lazy Loading/ on Demand Loading/ Dynamic import
+
+- bundler creates a single js file after bundling but when the app is so huge then the size of this file can blowup.
+- we can logically bundle or break our app into multiple files like one bundle for uber eats and one bundle for uber cabs.
+- what we will be loading the code only when user goes to that page(on demand loading).
+- react provides a named export called lazy using which we can achieve this on demand loading.
+- lazy function takes a callback function of import function which takes path of the component that needs to be lazy loaded.
+- const Grocery = lazy(() => import("./components/Grocery"));
+- react is fast and loads the component as soon as we click on grocery screen but the grocery screen is lazy loaded and till that time the code is not present in the browser. so this may cause error which can fixed by wrapping the grocery component with suspense component which has a fallback prop that tells what to load till the grocery component is lazy loaded.
