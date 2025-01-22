@@ -31,16 +31,18 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className="m-4 p-4">
           <input
             type="text"
             placeholder="Search Restaurants"
             value={searchtxt}
+            className="border border-solid border-black"
             onChange={(e) => {
               setSearchTxt(e.target.value);
             }}
           />
           <button
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
             onClick={() => {
               setRestaurants(() =>
                 allRestaurants.filter(({ info: { name } }) =>
@@ -51,24 +53,11 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            //Filter Logic Here
-            listOfRestaurants = listOfRestaurants.filter(
-              ({
-                info: {
-                  ratingNew: {
-                    ratings: {
-                      DELIVERY: { rating },
-                    },
-                  },
-                },
-              }) => rating > 4
-            );
-            setRestaurants((data) =>
-              data.filter(
+          <button
+            className="px-4 py-2 bg-gray-100 m-4 rounded-lg"
+            onClick={() => {
+              //Filter Logic Here
+              listOfRestaurants = listOfRestaurants.filter(
                 ({
                   info: {
                     ratingNew: {
@@ -77,15 +66,28 @@ const Body = () => {
                       },
                     },
                   },
-                }) => rating > 4.3
-              )
-            );
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+                }) => rating > 4
+              );
+              setRestaurants((data) =>
+                data.filter(
+                  ({
+                    info: {
+                      ratingNew: {
+                        ratings: {
+                          DELIVERY: { rating },
+                        },
+                      },
+                    },
+                  }) => rating > 4.3
+                )
+              );
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
-      <div className="restro-container">
+      <div className="flex flex-wrap">
         {restaurants.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.info.resId}

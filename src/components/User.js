@@ -10,12 +10,21 @@ const User = ({ name }) => {
       "https://api.github.com/users/pavankarthikparuchuri"
     );
     const json = await res.json();
-    console.log(json, "::json");
   }
   return (
-    <div className="user-card">
-      <button onClick={() => setCount1((data) => data + 1)}>{count1}</button>
-      <button onClick={() => setCount2((data) => data + 1)}>{count2}</button>
+    <div className="m-4 p-4 bg-gray-50 rounder-lg">
+      <button
+        onClick={() => setCount1((data) => data + 1)}
+        className="border border-solid border-black mx-4 px-2"
+      >
+        {count1}
+      </button>
+      <button
+        onClick={() => setCount2((data) => data + 1)}
+        className="border border-solid border-black mx-4 px-2"
+      >
+        {count2}
+      </button>
       <h2>Name: {name}</h2>
       <h3>Location: Bengaluru,Karnataka</h3>
       <h4>Contact: pavankarthikparichuri2001@gmail.com</h4>

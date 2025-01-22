@@ -477,3 +477,14 @@ export default UserClass;
 - lazy function takes a callback function of import function which takes path of the component that needs to be lazy loaded.
 - const Grocery = lazy(() => import("./components/Grocery"));
 - react is fast and loads the component as soon as we click on grocery screen but the grocery screen is lazy loaded and till that time the code is not present in the browser. so this may cause error which can fixed by wrapping the grocery component with suspense component which has a fallback prop that tells what to load till the grocery component is lazy loaded.
+
+# styling
+
+- scss and sass is writing css with some super powers.
+- css, scss, sass these is not recommended a way to write css these donot scale well with larger applications.
+- styled components are another way to write styling.
+- another way is by using libraries like material ui, bootstrap and chakra ui, ant design these provide already styled components
+- There is another trending framework called tailwind.css.
+- npm install -D tailwindcss postcss, postcss is used by tailwindcss behind the scenes. postcss is a tool that transforms css along with javascript. to transform css inside javascript tailwindcss uses postcss.
+- tailwindcss gives you classNames automatically to apply the css to the components.
+- tailwindcss is very lightweight, when parcel bundles the css only the used tailwindcss in the file is added instead of all the taildwind css files. only the used css is bundled
