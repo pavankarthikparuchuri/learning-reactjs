@@ -488,3 +488,41 @@ export default UserClass;
 - npm install -D tailwindcss postcss, postcss is used by tailwindcss behind the scenes. postcss is a tool that transforms css along with javascript. to transform css inside javascript tailwindcss uses postcss.
 - tailwindcss gives you classNames automatically to apply the css to the components.
 - tailwindcss is very lightweight, when parcel bundles the css only the used tailwindcss in the file is added instead of all the taildwind css files. only the used css is bundled
+
+# Higher Order Components
+
+- Higher order component is a function that takes a component and returns a component.
+- It takes an existing component and enhances it and returns a new component kind of like an enhancer.
+- when we write higher order components these higher order components are pure functions.
+- pure function means it doesnot change the properties of the parameters it recieve.
+
+# Controlled and Uncontrolled Components and lifting the state up
+
+- Important part of React applications is to manage your data.
+- All React applications has ui layer and data layer and ui layer is powered by data layer.
+- data layer consist for state, props and other data.
+- If we know how to manage our data properly the react applications would be very fast.
+- lifting the state up meaning lifting the state from child to parent.
+- If the component is controlling itself then it is called uncontrolled component, if the component is being controlled by the parent then it is called controlled component
+- whenever a state needs to be shared with siblings. we lift up the slate to the closest ancestor to make it a sole source of truth.
+
+# props drilling and context provider
+
+- passing props from parent to child is called props drilling.
+- react context is a place where data is kept and any component could be able to use it avoiding prop drilling.
+- createcontext is used to create the context
+  const UserContext = createContext({
+  loggedInUser: "Default User",
+  });
+- useContext is used to use the states inside the context
+  const { loggedInUser } = useContext(UserContext);
+- In class based components, contextName.consumer is used to consume the states inside a context
+  <UserContext.Consumer>
+  {(data) => console.log(data)}
+  </UserContext.Consumer>
+- to update the context values we need to use provider.
+- we can also use redux for state management.
+- we will be having a global store and we can access data from anywhere in the application.
+- The difference between context and redux is that redux is an external state management library where context is provided by react.
+- redux is scalable and is used in large scale applications.
+- context scales well for small to medium scale applications.

@@ -1,9 +1,11 @@
 import RestroCard from "./RestroCard";
 import resData from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { promotedCard } from "./RestroCard";
+import UserContext from "../utils/UserContext";
 const Body = () => {
   //Normal JS variable
   let listOfRestaurants = [resData[0], resData[1]];
@@ -12,6 +14,7 @@ const Body = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchtxt, setSearchTxt] = useState("");
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
@@ -21,6 +24,7 @@ const Body = () => {
     }, 500);
   }, []);
 
+  const RestroCardPromoted = promotedCard(RestroCard);
   if (!onlineStatus) {
     return <h1>Looks like you are offline !! please check your network</h1>;
   }
@@ -36,7 +40,7 @@ const Body = () => {
             type="text"
             placeholder="Search Restaurants"
             value={searchtxt}
-            className="border border-solid border-black"
+            className="border border-solid border-black p-2 rounded-md"
             onChange={(e) => {
               setSearchTxt(e.target.value);
             }}
@@ -85,6 +89,18 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+          <div>
+            <label>UserName: </label>
+            <input
+              type="text"
+              placeholder="user name"
+              className="border border-solid border-black p-2 rounded-md"
+              value={loggedInUser}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -93,7 +109,11 @@ const Body = () => {
             to={"/restaurants/" + restaurant.info.resId}
             key={restaurant.info.resId}
           >
-            <RestroCard RestroData={restaurant} />
+            {restaurant.isPromoted ? (
+              <RestroCardPromoted RestroData={restaurant} />
+            ) : (
+              <RestroCard RestroData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
