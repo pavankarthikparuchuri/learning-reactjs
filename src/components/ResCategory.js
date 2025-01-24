@@ -17,7 +17,7 @@ const ResCategory = ({ data, isOpen, setIsOpen }) => {
           {isOpen && <span>⬆</span>}
           {!isOpen && <span>⬇</span>}
         </div>
-        {isOpen && <ItemList items={data} />}
+        {isOpen && <ItemList items={data} isCart={false} />}
       </div>
     </div>
   );

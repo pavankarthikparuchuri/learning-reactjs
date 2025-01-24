@@ -515,7 +515,7 @@ export default UserClass;
   loggedInUser: "Default User",
   });
 - useContext is used to use the states inside the context
-  const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser } = use Context(UserContext);
 - In class based components, contextName.consumer is used to consume the states inside a context
   <UserContext.Consumer>
   {(data) => console.log(data)}
@@ -526,3 +526,31 @@ export default UserClass;
 - The difference between context and redux is that redux is an external state management library where context is provided by react.
 - redux is scalable and is used in large scale applications.
 - context scales well for small to medium scale applications.
+
+# Redux
+
+- Redux works in the data layer.
+- Redux offers state management.
+- React-Redux is a library which is an official binding of React to Redux.
+- Redux toolkit package is intended to be the standard way to write Redux logic which addresses issues with vanilla redux.
+  ![alt text](image-1.png)
+- Redux store is a big object placed kept in a central place.
+
+# Redux Toolkit
+
+- Install @redux/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (cartSlice)
+- dispatch(action)
+- Selector
+
+- In vanilla redux we dont mutate state, and also returning is mandatory
+- const newState = [...State];
+- newState.push(item);
+- return newState;
+
+- In Redux toolkit, we have to mutate the state or return a new state.
+- state.push(item);
+- redux toolkit uses immer library to help developers with immutable state based on copy-on-write mechanism
+- immer checks the old state and new new state and creates a new immutable state.

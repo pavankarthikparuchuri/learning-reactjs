@@ -1,4 +1,8 @@
-const ItemList = ({ items }) => {
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cart";
+
+const ItemList = ({ items, isCart }) => {
+  const dispath = useDispatch();
   return (
     <div>
       <ul>
@@ -16,9 +20,14 @@ const ItemList = ({ items }) => {
             </div>
             <div className="w-3/12 max-w-24">
               <div className="absolute">
-                <button className="px-3 py-1 bg-black shadow-lg m-16 mt-[74px] ml-[15px] rounded-lg text-white text-mg font-semibold">
-                  ADD +
-                </button>
+                {!isCart && (
+                  <button
+                    className="px-3 py-1 bg-black shadow-lg m-16 mt-[74px] ml-[15px] rounded-lg text-white text-mg font-semibold"
+                    onClick={() => dispath(addItem(item))}
+                  >
+                    ADD +
+                  </button>
+                )}
               </div>
               <img src={item.url} />
             </div>
