@@ -554,3 +554,37 @@ export default UserClass;
 - state.push(item);
 - redux toolkit uses immer library to help developers with immutable state based on copy-on-write mechanism
 - immer checks the old state and new new state and creates a new immutable state.
+
+# Developer Testing
+
+- Manual Testing
+- writing the testcases, there are 3 types of testing
+- unit testing (here, we test our react component in isolation. testing a component of code is unit testing. ex:- testing header component alone)
+- Integration testing (testing the integration of components. ex:- testing the search made and changes made in body)
+- End to End testing - e2e testing (testing the application from the user entering and leaving the application, like user simulation.) This needs tools like selenium, cypress, etc. but as a developer we are majorly concerned about first two testing.
+- we will be using react testing library, this is a testing library built on the top of dom testing library.
+- react testing library uses jest which is a javascript testing framework behind the scenes.
+
+# Setting up Testing in our app
+
+- install react testing library.
+- install jest
+- install babel dependencies
+- configure babel.config.js
+- parcel internally uses babel for transpilation and has set a configuration for babel. now there will be a conflict with the configuration we has set up and the previous configuration to resolve it we need to make changes in the parcel, so that the configuration we set up would be used.
+- configure parcel for disabling default babel transpilation.
+- jest configuration - npx jest --init
+- jsdom is a library which parases and interacts with assembled HTML just like a browser.
+- the testcases we write dont run on browser we use jsdom which provides a browser like environment to run the testcases.
+- Install Jsdom library
+- If we are using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel configuration.
+- Install @testing-library/jest-dom
+
+# where to write test cases?
+
+- either create a folder "**tests**" anywhere and create files with .ts or .js inside them
+- or else create files anywhere with suffix .spec.ts or .spec.js or .test.js or .spec.ts
+- two underscores at the front and back is called dunder it is a reserved word.
+- every time when we test a react component, we render, query and assert.

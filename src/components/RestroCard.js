@@ -16,7 +16,10 @@ const RestroCard = (props) => {
   const { deliveryTime } = RestroData?.order;
   const { loggedInUser } = useContext(UserContext);
   return (
-    <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-400">
+    <div
+      data-testid="restroCard"
+      className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-400"
+    >
       <img className="rounded-lg" alt="res-logo" src={url} />
       <h3 className="font-bold py-4 text-lg">{name}</h3>
       <h4 style={{ wordWrap: "break-word" }}>

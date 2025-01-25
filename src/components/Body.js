@@ -18,10 +18,10 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   useEffect(() => {
-    setTimeout(() => {
-      setRestaurants(resData);
-      setAllRestaurants(resData);
-    }, 500);
+    // setTimeout(() => {
+    setRestaurants(resData);
+    setAllRestaurants(resData);
+    // }, 500);
   }, []);
 
   const RestroCardPromoted = promotedCard(RestroCard);
@@ -40,6 +40,7 @@ const Body = () => {
             type="text"
             placeholder="Search Restaurants"
             value={searchtxt}
+            data-testid="searchInput"
             className="border border-solid border-black p-2 rounded-md"
             onChange={(e) => {
               setSearchTxt(e.target.value);
